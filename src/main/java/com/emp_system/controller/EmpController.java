@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.emp_system.entity.Employee;
@@ -62,6 +63,16 @@ public class EmpController {
 	    // Redirect to the home page
 	    return "redirect:/";
 	}
+
+	@GetMapping("/edit/{id}")
+	public String edit(@PathVariable int id, Model m) {
+	
+		Employee e =service.getEmpById(id);
+		m.addAttribute("emp", e);
+		return "edit";
+		
+	}
+	
 	
 	
 
