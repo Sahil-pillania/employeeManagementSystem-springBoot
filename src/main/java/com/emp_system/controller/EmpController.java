@@ -1,5 +1,7 @@
 package com.emp_system.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +21,10 @@ public class EmpController {
 	private EmpService service; 
 
 	@GetMapping("/")
-	public String home() {
+	public String home(Model m) {
+		
+		List<Employee> emp  = service.getAllEmp();
+		m.addAttribute("emp",emp);
 		return "index";
 		
 	}
@@ -57,6 +62,9 @@ public class EmpController {
 	    // Redirect to the home page
 	    return "redirect:/";
 	}
+	
+	
+
 
 	
 	

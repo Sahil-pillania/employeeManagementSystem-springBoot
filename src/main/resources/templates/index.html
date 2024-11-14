@@ -50,35 +50,25 @@
 		      <th scope="col" class="bg-primary text-white">Email</th>
 		      <th scope="col" class="bg-primary text-white">Phone No</th>
 		      <th scope="col" class="bg-primary text-white">Salary</th>
+		       <th scope="col" class="bg-primary text-white">Actions</th>
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <tr>
-		      <th scope="row">1</th>
-		      <td>Mark</td>
-		      <td>Otto</td>
-		      <td>@mdo</td>
-		      	      <td>Mark</td>
-		      <td>Otto</td>
+		    <tr th:each="e: ${emp}">
+		      <th th:text="${e.id}"></th>
+		      <td th:text="${e.name}"></td>
+		      <td th:text="${e.address}"></td>
+		      <td th:text="${e.email}"></td>
+		      	     
+		      <td th:text="${e.phno}"></td>
+		      <td th:text="${e.salary}"></td>
+		      <td>
+		      	<a class="btn btn-sm btn-primary">Edit</a>
+		      	<a class="btn btn-sm btn-danger">Delete</a>
+		      </td>
 		     
 		    </tr>
-		    <tr>
-		      <th scope="row">2</th>
-		      <td>Jacob</td>
-		      <td>Thornton</td>
-		      <td>@fat</td>
-		      	      <td>Mark</td>
-		      <td>Otto</td>
 		    
-		    </tr>
-		    <tr>
-		      <th scope="row">3</th>
-		      <td >Larry the Bird</td>
-		      <td>@twitter</td>
-		      	      <td>Mark</td>
-		      <td>Otto</td>
-		     
-		    </tr>
 		  </tbody>
 		</table>
 		    </div>
