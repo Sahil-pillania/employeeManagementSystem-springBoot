@@ -20,12 +20,15 @@ public class EmpService {
 		
 	}
 	
+	// getting all employees
+	
 	public List<Employee> getAllEmp() {
 		
 		List<Employee> allEmp = repo.findAll();
 		return allEmp;
 	}
 	
+	// finding/getting one employee details
 	public Employee getEmpById(int id) {
 	
 		
@@ -36,5 +39,13 @@ public class EmpService {
 		}
 		return null;
 	}
+	
+	// deleting the employee
+	public void deleteEmp(int id) {
+		
+		repo.deleteById(id);
+	}
+	
+	
 
 }

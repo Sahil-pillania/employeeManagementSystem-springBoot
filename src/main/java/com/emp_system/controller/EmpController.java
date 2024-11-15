@@ -77,7 +77,22 @@ public class EmpController {
 		
 		service.addEmp(e);
 	    // Set a success message in the session
-	    session.setAttribute("msg", "Employee Updated Successfully.");
+	    session.setAttribute("msg", "Employee Updated Successfully...");
+	    
+	    // Add the context variables for Thymeleaf
+	    model.addAttribute("request", request);
+	    model.addAttribute("session", session);
+	    model.addAttribute("servletContext", request.getServletContext());
+	    // Redirect to the home page
+	    return "redirect:/";
+		
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String edit(@PathVariable int id, HttpSession session, HttpServletRequest request, Model model) {
+	
+		service.deleteEmp(id);
+	    session.setAttribute("msg", "Employee Deleted Successfully...");
 	    
 	    // Add the context variables for Thymeleaf
 	    model.addAttribute("request", request);
