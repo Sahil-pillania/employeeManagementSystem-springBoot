@@ -72,6 +72,21 @@ public class EmpController {
 		return "edit";
 		
 	}
+	@PostMapping("/update")
+	public String updateEmp(@ModelAttribute Employee e,HttpSession session, HttpServletRequest request, Model model ) {
+		
+		service.addEmp(e);
+	    // Set a success message in the session
+	    session.setAttribute("msg", "Employee Updated Successfully.");
+	    
+	    // Add the context variables for Thymeleaf
+	    model.addAttribute("request", request);
+	    model.addAttribute("session", session);
+	    model.addAttribute("servletContext", request.getServletContext());
+	    // Redirect to the home page
+	    return "redirect:/";
+		
+	}
 	
 	
 	
